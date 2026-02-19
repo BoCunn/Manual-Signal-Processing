@@ -1,13 +1,11 @@
-<<<<<<< HEAD
+
 import librosa
 import matplotlib.pyplot as plt
-=======
 from pyexpat import features
 
 import librosa
 import matplotlib.pyplot as plt
 import numpy as np
->>>>>>> master
 from scipy.spatial.distance import euclidean
 
 def extract_features(audio, sr):
@@ -28,21 +26,21 @@ def extract_features(audio, sr):
     plt.title('Waveform of Audio')
     plt.show(block=False)
     
-<<<<<<< HEAD
+
     # Extract Spectral Centroid
     spectral_centroid = librosa.feature.spectral_centroid(y=audio, sr=sr)
     features['Spectral Centroid'] = spectral_centroid
-=======
+
     # Extract RMS
     RMS = librosa.feature.rms(y=audio)
     features['RMS'] = RMS
->>>>>>> master
+
     
     # Extract Zero Crossing Rate
     zero_crossing_rate = librosa.feature.zero_crossing_rate(y=audio)
     features['Zero Crossing Rate'] = zero_crossing_rate
     
-<<<<<<< HEAD
+
     # Extract Spectral Flatness
     spectral_flatness = librosa.feature.spectral_flatness(y=audio)
     features['Spectral Flatness'] = spectral_flatness
@@ -51,7 +49,7 @@ def extract_features(audio, sr):
     distance = euclidean(spectral_flatness.flatten(), spectral_centroid.flatten())
     features['Euclidean Distance'] = distance
   
-=======
+
     # Extract Short Time Energy
     frame_length = 2048  # same used for RMS
     STE = (RMS.flatten() ** 2) * frame_length
@@ -59,5 +57,5 @@ def extract_features(audio, sr):
 
 
 
->>>>>>> master
+
     return features
